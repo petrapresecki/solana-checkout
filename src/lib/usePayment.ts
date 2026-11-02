@@ -61,7 +61,8 @@ export function usePayment(request: PaymentRequest) {
       if (!transaction?.meta) return null
 
       const received = amountReceived(transaction.meta, request.recipient, USDC_MINT.toBase58())
-      const { value } = await connection.getSignatureStatuses([success.signature])
+      // without the history search, the network forgets a payment after a couple of minutes
+      const { value } = await connection.getSignatureStatuses([success.signature], { searchTransactionHistory: true })
       return {
         step: value[0]?.confirmationStatus === 'finalized' ? 'final' : 'confirmed',
         signature: success.signature,
