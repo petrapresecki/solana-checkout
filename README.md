@@ -2,7 +2,7 @@
 
 ![A 1 USDC payment going from waiting to final](docs/checkout.gif)
 
-Live at [solana-checkout.pages.dev](https://solana-checkout.pages.dev). It runs on devnet, so the money is fake.
+Live at [petrapresecki.github.io/solana-checkout](https://petrapresecki.github.io/solana-checkout/). It runs on devnet, so the money is fake.
 
 I've been working in payments and knew nothing about Solana, so I built a checkout to learn how it works. You create a payment link, someone pays it in USDC, and the page follows the payment on the chain until it's final. Everything runs in the browser, with no backend.
 

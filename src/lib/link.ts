@@ -42,7 +42,7 @@ export function fromAtomic(atomic: bigint): string {
   return `${whole}.${fraction}`
 }
 
-export function toCheckoutUrl(request: PaymentRequest, origin = window.location.origin) {
+export function toCheckoutUrl(request: PaymentRequest, page = window.location.origin + window.location.pathname) {
   const params = new URLSearchParams({
     to: request.recipient,
     amount: request.amount,
@@ -51,7 +51,7 @@ export function toCheckoutUrl(request: PaymentRequest, origin = window.location.
     ref: request.reference,
     exp: String(request.expiresAt),
   })
-  return `${origin}/?${params}`
+  return `${page}?${params}`
 }
 
 export function readCheckoutUrl(search: string): PaymentRequest | null {

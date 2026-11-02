@@ -34,7 +34,7 @@ describe('money', () => {
 
 describe('links', () => {
   it('survive a round trip through the URL', () => {
-    const url = new URL(toCheckoutUrl(request, 'https://pay.test'))
+    const url = new URL(toCheckoutUrl(request, 'https://pay.test/shop/'))
     expect(readCheckoutUrl(url.search)).toEqual(request)
   })
 
